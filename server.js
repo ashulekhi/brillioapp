@@ -9,7 +9,7 @@ const Port =  5000
 const dburl = "mongodb://localhost:27017/brilliodb1"
 const databaseUrl = "mongodb+srv://ashu_lekhi1:test12345@cluster0.w5ixg.mongodb.net/apifromashu"
 
-
+const dburlserver = "mongodb+srv://dhanupandey:test12345@cluster0.s2usivc.mongodb.net/?retryWrites=true&w=majority"
 const corsOptions = {
     exposedHeaders: 'Authorization',
   };
@@ -30,7 +30,7 @@ server.get("/*",(req,res)=>{
 
 
 server.listen( Port ,function(){
-    Mongoose.connect(databaseUrl,function(error,client){
+    Mongoose.connect(dburlserver,function(error,client){
         if(error){
             console.log("Error in connecting to database", error)
         }
