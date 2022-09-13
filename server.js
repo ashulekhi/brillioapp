@@ -7,6 +7,8 @@ const server = Express()
 const bodyparser = require("body-parser")
 const Port =  5000
 const dburl = "mongodb://localhost:27017/brilliodb1"
+const databaseUrl = "mongodb+srv://ashu_lekhi1:test12345@cluster0.w5ixg.mongodb.net/apifromashu"
+
 
 const corsOptions = {
     exposedHeaders: 'Authorization',
@@ -22,8 +24,13 @@ server.use('/user', require("./user"))
 server.use('/video', require("./video"))
 
 
+server.get("/*",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"./build/index.html"))
+})
+
+
 server.listen( Port ,function(){
-    Mongoose.connect(dburl,function(error,client){
+    Mongoose.connect(databaseUrl,function(error,client){
         if(error){
             console.log("Error in connecting to database", error)
         }
