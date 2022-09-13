@@ -20,8 +20,8 @@ server.use(cors(corsOptions))
 //   });
 server.use(Express.static(path.resolve(__dirname,"./build")))
 server.use(bodyparser())
-server.use('/user', require("./user"))
-server.use('/video', require("./video"))
+server.use('/api/user', require("./user"))
+server.use('/api/video', require("./video"))
 
 
 server.get("/*",(req,res)=>{
