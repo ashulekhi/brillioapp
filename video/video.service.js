@@ -5,6 +5,7 @@ exports.createVideo = (data)=>{
         console.log("Data received for creating video", data)
         data.videoid = Math.floor(100000000 + Math.random() * 900000000)+Date.now()
         console.log("checking video id for a record" , data.videoid)
+        data.owner = "ashu.lekhi0540@gmail.com"
         var videodata = new VideoModel(data)
         videodata.save().then((result)=>{
             console.log("resukt of saving video into db" , result)
